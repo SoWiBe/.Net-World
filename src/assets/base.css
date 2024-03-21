@@ -1,86 +1,486 @@
-/* color palette from <https://github.com/vuejs/theme> */
+/*
+Theme Name: Portfolio
+Theme URI: https://templatesjungle.com/
+Author: TemplatesJungle
+Author URI: https://templatesjungle.com/
+Description: Portfolio is specially designed HTML CSS template.
+Version: 1.1
+*/
+
+/*--------------------------------------------------------------
+This is main CSS file that contains custom style rules used in this template
+--------------------------------------------------------------*/
+
+/*------------------------------------*\
+    Table of contents
+\*------------------------------------*/
+
+/*------------------------------------------------
+
+CSS STRUCTURE:
+
+1. VARIABLES
+
+2. GENERAL TYPOGRAPHY
+  2.1 General Styles
+  2.2 Floating & Alignment
+  2.3 Forms
+  2.4 Lists
+  2.5 Code
+  2.6 Tables
+  2.7 Spacing
+  2.8 Utilities
+  2.9 Misc
+  2.10 Buttons
+    - Button Sizes
+    - Button Shapes
+    - Button Color Scheme
+    - Button Aligns
+  2.11 Images
+    - Image Hover Effects
+  2.12 Section
+    - Hero Section
+    - Section Title
+    - Section Paddings
+    - Section Margins
+    - Section Bg Colors
+    - Content colors
+
+
+3. EXTENDED TYPOGRAPHY
+  3.1 Blockquote / Pullquote
+  3.2 Dropcap
+  3.3 Text Highlights
+
+4. CONTENT ELEMENTS
+  4.1 Tabs
+  4.2 Accordions
+  4.3 Member Grid
+  4.4 Product Grid
+
+5. BLOG STYLES
+  5.1 Blog Single Post
+  5.2 About Author
+  5.3 Comments List
+  5.4 Comments Form
+
+6. Grid Layout
+
+6. SITE STRUCTURE
+  6.1 Preloader
+  6.2 Header
+    - Logo
+    - Header Menu
+    - Nav Sidebar
+  6.3 Billboard
+  6.4 About Me Section
+  6.5 Portfolio Section
+  6.6 Quotation Section
+  6.7 Achievement Section
+  6.8 Post Grid Section
+  6.9 Testimonials Section
+  6.10 Footer
+    - Footer Top
+    - Footer Bottom
+  
+
+7. THIRD PARTY COMPONENTS
+  7.1 parallax section
+  7.2 Blog Page
+  7.3 Page Navigation
+
+
+
+/*--------------------------------------------------------------
+/** 1. VARIABLES
+--------------------------------------------------------------*/
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
-
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
-
-  --vt-c-indigo: #2c3e50;
-
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  /* widths for rows and containers
+   */
+  --header-height       : 160px;
+  --header-height-min   : 80px;
 }
-
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
-}
-
-@media (prefers-color-scheme: dark) {
+/* on mobile devices below 600px
+*/
+@media screen and (max-width: 600px) {
   :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
+      --header-height : 100px;
+      --header-height-min   : 80px;
   }
 }
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  font-weight: normal;
+/* Theme Colors */
+:root {
+  --accent-color       : #111;
+  --secondary-color    : #C5A992;
+  --dark-color         : #2f2f2f;
+  --grey-color         : #F8F8F8;
+  --heading-color      : #111;
+  --body-text-color    : #b0b0b0;
+  --light-heading-color   : #fff;
+  --light-background-color   : #fff;
+  --light-text-color   : #afafaf;
+  --bg-text-color      : #f1f1f1;
+  --dark-text-color    : #2f2f2f;
+}
+/* Fonts */
+:root {
+  --body-font           : "Manrope", sans-serif;
+  --heading-font        : 'Montserrat', sans-serif;
+  --secondary-font      : "Playfair Display", Georgia, serif;
 }
 
+
+/*----------------------------------------------*/
+/* 2 GENERAL TYPOGRAPHY */
+/*----------------------------------------------*/
+
+/* 2.1 General Styles
+/*----------------------------------------------*/
+*, *::before, *::after {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+html {
+box-sizing: border-box;
+}
 body {
-  min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
-  line-height: 1.6;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+font-family: var(--body-font);
+font-size: 16px;
+line-height: 1.8;
+color: var(--body-text-color);
+}
+body.no-scroll {
+  overflow: hidden;
+}
+a {
+color: var(--accent-color);
+text-decoration: none;
+transition: 0.3s color ease-out;
+}
+a:hover {
+text-decoration: none;
+}
+ul, ol {
+margin-top: 0;
+margin-bottom: 10px;
+margin-left: 0;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+margin-top: 5px;
+margin-bottom: 0;
+}
+ul li, ol li {
+margin-bottom: 5px;
+outline: 0;
+}
+ul li.active a{
+color: #daa556;
+}
+ul li:last-child,
+ol li:last-child {
+margin-bottom: 0;
+}
+dl {
+margin-top: 0;
+margin-bottom: 2rem;
+}
+dt,
+dd {
+line-height: 1.42857143;
+}
+dt {
+font-weight: bold;
+}
+dd {
+margin-left: 0;
+}
+button, input, select, textarea {
+font-family: inherit;
+font-size: inherit;
+line-height: inherit;
+outline: 0;
+}
+figure {
+margin: 0;
+}
+img {
+display: inline-block;
+border: 0;
+max-width: 100%;
+height: auto;
+vertical-align: middle;
+}
+::selection {
+background: rgba(0,0,0,0.8);
+color: #fff;
+text-shadow: none;
+}
+::-moz-selection {
+background: rgba(0,0,0,0.8);
+color: #fff;
+text-shadow: none;
+}
+
+/* image align */
+figure.align-right {
+margin: 30px 0 30px 30px;
+}
+
+/* Typography */
+/*----------------------------------------------*/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+line-height: 1.2;
+color: var(--dark-color);
+}
+h1.light, .h1, h2.light, .h2, h3.light, .h3, h4.light, .h4, h5.light, .h5, h6.light, .h6 {
+color: #fff;
+}
+h1, h2, h3 {
+margin: 25px 0;
+text-transform: capitalize;
+}
+h5, h6 {
+letter-spacing: 1px;
+}
+h1, .h1 {
+font-size: 2.5em;
+line-height: 1.4;
+}
+h2, .h2 {
+font-size: 1.5em;
+line-height: 1.4;
+}
+h3, .h3 {
+font-size: 1.4em;
+line-height: 1.4;
+}
+h4, .h4 {
+font-size: 1.1em;
+line-height: 1.4;
+}
+h5, .h5 {
+font-size: .83em;
+line-height: 1.25;
+}
+h6, .h6 {
+font-size: .67em;
+line-height: 1.1;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+font-weight: inherit;
+color: inherit;
+text-decoration: none;
+}
+p {
+ margin: 0 0 20px 0;
+}
+p:empty {
+display: none;
+}
+small {
+font-size: 85%;
+}
+mark {
+background-color: var(--grey-color);
+padding: 0.28rem;
+}
+dfn, cite, em, i {
+font-style: italic;
+}
+code, kbd, var {
+font-size: 14px;
+}
+code {
+background-color:  var(--grey-color);
+}
+abbr {
+border-bottom: 0.1px dotted #666;
+cursor: help;
+}
+::placeholder {
+  color: #999;
+}
+
+/*----------------------------------------------*/
+/* 2.1 Floating & Alignment */
+/*----------------------------------------------*/
+
+.align-left {
+float: left;
+text-align: left;
+}
+.align-right {
+float: right;
+text-align: right;
+}
+.align-center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+}
+/**::after,*/
+.container::after,
+.row::after,
+.clearfix::after {
+display: block;
+clear: both;
+content: "";
+}
+
+/*----- 6.3 Billboard
+--------------------------------------------------------------*/
+#billboard .banner-content {
+  color: #fff;
+  margin-left: 200px;
+  width: 50%;
+  padding: 250px 0 100px;
+}
+#billboard .banner-background {
+  color: #000;
+}
+#billboard .banner-content span {
+  background-color: #444;
+  padding: 10px;
+  text-transform: capitalize;
+  letter-spacing: 2.5px;
+}
+#billboard .banner-content h2 {
+  font-size: 6em;
+  line-height: 1;
+  margin-top: 45px;
+}
+#billboard .banner-content p {
+  font-size: 1em;
+  width: 50%;
+  line-height: 1.7;
+  color: var(--body-text-color);
+}
+
+@media screen and (max-width: 1480px){
+#billboard .banner-content {
+    padding-top: 150px;
+}
+#billboard .banner-content h3 {
+    font-size: 4.5em;
+}
+}
+@media screen and (max-width: 1380px){
+#billboard .banner-content h2 {
+    font-size: 4.5em;
+}
+}
+@media screen and (max-width: 1180px){
+#billboard .banner-content {
+    margin-left: 100px;
+    width: 60%;
+}
+#billboard .banner-content h2 {
+     font-size: 3.5em;
+}
+#billboard .banner-content p {
+    width: 70%;
+}  
+#billboard img.parallax-image {
+    height: 600px;
+    object-fit: cover;
+}
+}
+@media screen and (max-width: 780px){
+#billboard .banner-content {
+    width: 90%;
+    margin-left: 30px;
+}
+}
+
+
+/*----- 6.4 About Me Section
+--------------------------------------------------------------*/
+#about-me .intro {
+  margin-right: 60px;
+  margin-bottom: 70px;
+}
+#about-me .intro p {
+  line-height: 2.5;
+  color: var(--body-text-color);;
+}
+#about-me .skill-chart ul {
+  text-transform: uppercase;
+  list-style: none;
+}
+#about-me .skill-chart li {
+  border-bottom: 1px solid #dbdbdb;
+  margin-bottom: 40px;
+  width: 100%;
+}
+#about-me .skill-chart li span.skill {
+  display: block;
+  border-bottom: 3px solid #000;
+  padding-bottom: 24px;
+  margin-bottom: -2px;
+}
+.skill-chart li span.twenty-percent {
+width: 20%; 
+}
+.skill-chart li span.thirty-percent {
+width: 30%; 
+}
+.skill-chart li span.forty-percent {
+width: 40%; 
+}
+.skill-chart li span.fifty-percent {
+width: 50%; 
+}
+.skill-chart li span.sixty-percent {
+width: 60%; 
+}
+.skill-chart li span.seventy-percent {
+width: 70%; 
+}
+.skill-chart li span.eighty-percent {
+width: 80%; 
+}
+
+/*----- 6.5 Portfolio Section
+--------------------------------------------------------------*/
+#portfolio .portfolio-title {
+  padding: 20px 0 60px;
+  text-align: right;
+}
+#portfolio .portfolio-title a {
+  font-size: 1.6em;
+  padding-bottom: 5px;
+  animation-delay: 5s;
+}
+#portfolio .portfolio-title a:hover {
+  color: #808080;
+  border-color: #808080;
+}
+#portfolio .portfolio-image {
+  width: 100%;
+  object-fit: cover;
+}
+#portfolio .portfolio-item img {
+  transition: transform 0.6s ease-out;
+}
+#portfolio .portfolio-item a {
+  display: block;
+  overflow: hidden;
+}
+#portfolio .portfolio-item a:hover img {
+  transform: scale(1.1);
+}
+#portfolio .portfolio-image.large-image {
+  height: 700px;
+}
+#portfolio .portfolio-image.medium-image {
+  height: 550px;
+}
+#portfolio .portfolio-image.small-image {
+  height: 400px;
 }

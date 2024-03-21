@@ -1,17 +1,13 @@
-<script setup>
-
-</script>
-
 <template>
-  <header>
-    
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <HeaderComponent/>
+  <AboutMeComponent/>
 </template>
+
+<script setup>
+ import HeaderComponent from './components/HeaderComponent.vue';
+ import AboutMeComponent from './components/AboutMeComponent.vue';
+</script>
 
 <style scoped>
 
-</style>
+</style>./components/HeaderComponent.vue
